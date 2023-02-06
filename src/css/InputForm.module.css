@@ -1,3 +1,15 @@
 .inputFormSection {
   margin: 70px 0px;
 }
+
+.alert {
+  color: red;
+  margin: 25px 0px;
+  font-style: italic;
+}
+
+input[type='submit'] {
+  background-color: black;
+  color: white;
+  padding: 12px;
+}

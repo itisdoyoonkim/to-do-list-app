@@ -13,8 +13,6 @@ import List from './components/List';
 function App() {
   const [todos, dispatch] = useReducer(todosReducer, []);
 
-  console.log('from App.js', todos);
-
   const handleCreateNewTodo = (newTodo) => {
     dispatch({
       type: 'ADD_A_NEW_TODO',
