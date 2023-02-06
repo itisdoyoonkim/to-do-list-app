@@ -16,11 +16,13 @@ export default function CompletedTodosList() {
         <>
           <h3>yay. you got this much done.</h3>
           <ul className={styles['list']}>
-            {todos.map((todo) => {
-              if (todo.completed) {
-                return <li key={todo.id}>{todo.detail}</li>;
-              }
-            })}
+            {todos
+              .filter((todo) => {
+                return todo.completed;
+              })
+              .map((result) => {
+                return <li key={result.id}>{result.detail}</li>;
+              })}
           </ul>
         </>
       ) : (
