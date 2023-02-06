@@ -1,0 +1,14 @@
+.list {
+  list-style: none;
+}
+
+.list li {
+  margin: 15px 0px;
+}
+
+.list label {
+  margin-left: 20px;
+}
+
+.completed-todo-section {
+}

@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
+
+import { useReducer } from 'react';
+
+import { TodoContext } from './TodoContext';
+import { todosReducer } from './TodosReducer';
+
+import Title from './components/Title';
+import InputForm from './components/InputForm';
+import List from './components/List';
 
 function App() {
+  const [todos, dispatch] = useReducer(todosReducer, []);
+
+  console.log('from App.js', todos);
+
+  const handleCreateNewTodo = (newTodo) => {
+    dispatch({
+      type: 'ADD_A_NEW_TODO',
+      payload: newTodo,
+    });
+  };
+
+  const handleChangeStatusOfTodo = (todoId) => {
+    dispatch({
+      type: 'CHANGE_STATUS_OF_TODO',
+      payload: todoId,
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <main className='App'>
+        <Container>
+          <TodoContext.Provider value={todos}>
+            <Title title='the infamous to-do list application' />
+            <InputForm handleCreateNewTodo={handleCreateNewTodo} />
+            <List handleChangeStatusOfTodo={handleChangeStatusOfTodo} />
+          </TodoContext.Provider>
+        </Container>
+      </main>
+    </ChakraProvider>
   );
 }
 

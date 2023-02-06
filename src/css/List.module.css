@@ -1,0 +1,26 @@
+.list {
+  list-style: none;
+}
+
+.list input[type='checkbox'] {
+  transform: scale(1.2);
+}
+
+.list li {
+  margin: 15px 0px;
+}
+
+.list label {
+  margin-left: 20px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.not-completed {
+}
+
+.list-section {
+  margin-bottom: 100px;
+}
