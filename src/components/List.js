@@ -1,8 +1,11 @@
+// context
 import { useContext } from 'react';
 import { TodoContext } from '../context/TodoContext';
 
+// style
 import styles from '../css/List.module.css';
 
+// components
 import CompletedTodosList from './CompletedTodosList';
 import IncompleteTodoList from './IncompleteTodoList';
 

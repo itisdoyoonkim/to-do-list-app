@@ -1,12 +1,17 @@
+// chakra library
 import { SimpleGrid } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 
-import uuid from 'react-uuid';
+// uuid library
+import { v4 as uuid } from 'uuid';
 
+// react library
 import { useState, useRef, useContext } from 'react';
 
+// context
 import { TodoContext } from '../context/TodoContext';
 
+// style
 import styles from '../css/InputForm.module.css';
 
 export default function InputField() {
@@ -48,20 +53,18 @@ export default function InputField() {
   return (
     <section className={styles['inputFormSection']}>
       <div className={styles['alert']}>{alert}</div>
-      <SimpleGrid columns={2} spacing={5}>
-        <form onSubmit={handleSave}>
-          <Input
-            placeholder='what do you need to do?'
-            variant='flushed'
-            size='md'
-            value={todo.detail}
-            onChange={handleInputChange}
-            ref={inputEl}
-            autoFocus
-          />
-          <input type='submit' value='save' className='submit-button' />
-        </form>
-      </SimpleGrid>
+      <form onSubmit={handleSave}>
+        <Input
+          placeholder='what do you need to do?'
+          variant='flushed'
+          size='md'
+          value={todo.detail}
+          onChange={handleInputChange}
+          ref={inputEl}
+          autoFocus
+        />
+        <input type='submit' value='save' className='submit-button' />
+      </form>
     </section>
   );
 }

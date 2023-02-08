@@ -1,9 +1,12 @@
-import React, { useMemo } from 'react';
+// react library
+import React from 'react';
 import { useContext } from 'react';
 
-import styles from '../css/CompletedTodosList.module.css';
-
+// context
 import { TodoContext } from '../context/TodoContext';
+
+// style
+import styles from '../css/CompletedTodosList.module.css';
 
 export default function CompletedTodosList() {
   const { todos } = useContext(TodoContext);
@@ -14,7 +17,7 @@ export default function CompletedTodosList() {
         return todo.completed !== false;
       }).length > 0 ? (
         <>
-          <h3>yay. you got this much done.</h3>
+          <h2>yay. you got this much done.</h2>
           <ul className={styles['list']}>
             {todos
               .filter((todo) => {
@@ -26,7 +29,7 @@ export default function CompletedTodosList() {
           </ul>
         </>
       ) : (
-        'wow. you got nothing done...'
+        ''
       )}
     </section>
   );

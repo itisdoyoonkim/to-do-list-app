@@ -1,9 +1,12 @@
+// react library
 import React from 'react';
 import { useContext } from 'react';
 
+// context
 import { TodoContext } from '../context/TodoContext';
 
-import styles from '../css/List.module.css';
+// style
+import styles from '../css/IncompleteTodoList.module.css';
 
 export default function IncompleteTodoList({ handleChangeStatusOfTodo }) {
   const { todos } = useContext(TodoContext);
@@ -13,9 +16,11 @@ export default function IncompleteTodoList({ handleChangeStatusOfTodo }) {
   };
 
   return (
-    <section>
+    <section className={styles['incomplete-to-do-list-section']}>
       {todos.length ? (
         <ul className={styles['list']}>
+          <h2>here is a list of things to do:</h2>
+
           {todos.map((todo) => {
             return (
               <li key={todo.id}>
@@ -41,7 +46,7 @@ export default function IncompleteTodoList({ handleChangeStatusOfTodo }) {
           })}
         </ul>
       ) : (
-        'Nothing to do..'
+        'your list is currently empty...'
       )}
     </section>
   );

@@ -1,11 +1,17 @@
+// chakra library
 import { ChakraProvider } from '@chakra-ui/react';
 import { Container } from '@chakra-ui/react';
 
+// react library
 import { useReducer } from 'react';
 
+// context
 import { TodoContext } from '../context/TodoContext';
+
+// reducer
 import { todosReducer } from '../reducer/TodosReducer';
 
+// components
 import Title from './Title';
 import InputForm from './InputForm';
 import List from './List';
@@ -29,17 +35,19 @@ function TodoApp() {
 
   return (
     <ChakraProvider>
-      <main className='App'>
+      <div className='App'>
         <Container>
           <TodoContext.Provider
             value={{ todos, handleChangeStatusOfTodo, handleCreateNewTodo }}
           >
             <Title title='the infamous to-do list application' />
-            <InputForm />
-            <List handleChangeStatusOfTodo={handleChangeStatusOfTodo} />
+            <main>
+              <InputForm />
+              <List handleChangeStatusOfTodo={handleChangeStatusOfTodo} />
+            </main>
           </TodoContext.Provider>
         </Container>
-      </main>
+      </div>
     </ChakraProvider>
   );
 }

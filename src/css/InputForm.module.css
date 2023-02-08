@@ -8,8 +8,17 @@
   font-style: italic;
 }
 
+form {
+  display: flex;
+}
+
+input {
+  flex: 5;
+}
+
 input[type='submit'] {
+  flex: 1;
   background-color: black;
   color: white;
-  padding: 12px;
+  padding: 8px 0px;
 }
