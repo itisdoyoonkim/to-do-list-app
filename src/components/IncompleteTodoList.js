@@ -1,12 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
 
-import { TodoContext } from '../TodoContext';
+import { TodoContext } from '../context/TodoContext';
 
 import styles from '../css/List.module.css';
 
 export default function IncompleteTodoList({ handleChangeStatusOfTodo }) {
-  const todos = useContext(TodoContext);
+  const { todos } = useContext(TodoContext);
 
   const handleCheckboxStatusChange = (todoId) => {
     handleChangeStatusOfTodo(todoId);

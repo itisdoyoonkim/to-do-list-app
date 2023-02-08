@@ -9,7 +9,6 @@ export const todosReducer = (state = initState, action) => {
     case 'CHANGE_STATUS_OF_TODO':
       return state.map((todo) => {
         if (todo.id === payload) {
-          // Why does this not work?
           // todo.completed = !todo.completed;
 
           // But this works?

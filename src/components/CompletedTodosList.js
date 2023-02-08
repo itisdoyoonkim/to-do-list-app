@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useContext } from 'react';
 
 import styles from '../css/CompletedTodosList.module.css';
 
-import { TodoContext } from '../TodoContext';
+import { TodoContext } from '../context/TodoContext';
 
 export default function CompletedTodosList() {
-  const todos = useContext(TodoContext);
+  const { todos } = useContext(TodoContext);
 
   return (
     <section className={styles['completed-todo-section']}>

@@ -3,20 +3,22 @@ import { Input } from '@chakra-ui/react';
 
 import uuid from 'react-uuid';
 
-import { useState } from 'react';
-import { useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
+
+import { TodoContext } from '../context/TodoContext';
 
 import styles from '../css/InputForm.module.css';
 
-export default function InputField({ handleCreateNewTodo }) {
+export default function InputField() {
   const [todo, setTodo] = useState({ id: null, detail: '', completed: null });
   const [alert, setAlert] = useState(null);
+
+  const { handleCreateNewTodo } = useContext(TodoContext);
 
   const inputEl = useRef(null);
 
   const handleInputChange = (e) => {
     setTodo({
-      id: uuid(),
       detail: e.target.value,
       completed: false,
     });
@@ -35,6 +37,8 @@ export default function InputField({ handleCreateNewTodo }) {
       }, 2000);
       return;
     }
+
+    todo.id = uuid();
 
     handleCreateNewTodo(todo);
     setTodo({ id: null, detail: '', completed: null });
