@@ -1,5 +1,4 @@
 // chakra library
-import { SimpleGrid } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 
 // uuid library
